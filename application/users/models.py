@@ -44,5 +44,5 @@ class User(db.Model):
 
     def get_id(self):
         """Get the user ID."""
-        return unicode(self.id)
+        return str(self.id)
 

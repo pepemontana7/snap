@@ -21,6 +21,7 @@ class LoginForm(Form):
 
 @users.route('/login', methods=['GET', 'POST'])
 def login():
+    print("LOGIN FUNCTION !!!!!!!!!!!!!!!!!!!!!!")
     """Basic user login functionality.
 
     If the user is already logged in, we
@@ -39,9 +40,11 @@ def login():
     loading and password checking into a custom Flask-WTF validator
     for the LoginForm, but we avoid that for the moment, here.
     """
- 
-    if current_user.is_authenticated():
+    
+    if current_user.is_authenticated:
+        print ("AUTH LOOP!!!!!!!!!!!!!!")
         return redirect(url_for('snaps.listing'))
+    print("NOT IN LOOP!!!!!!!!!!!!!!!!!")
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(
